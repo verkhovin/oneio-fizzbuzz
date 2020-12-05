@@ -1,4 +1,4 @@
-package cloud.oneio.task.fizzbuzz.api
+package cloud.oneio.task.fizzbuzz.api.dto
 
 import cloud.oneio.task.fizzbuzz.model.Game
 
@@ -7,7 +7,7 @@ data class GameDto(val rounds: List<RoundDto>) {
     infix fun of(game: Game) = GameDto(
       game.rounds
         .asSequence()
-        .map {it.result.joinToString()}
+        .map { it.result.joinToString() }
         .map(::RoundDto)
         .toList()
     )

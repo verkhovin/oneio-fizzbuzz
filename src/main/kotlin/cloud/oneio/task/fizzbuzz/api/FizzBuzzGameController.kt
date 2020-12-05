@@ -1,5 +1,6 @@
 package cloud.oneio.task.fizzbuzz.api
 
+import cloud.oneio.task.fizzbuzz.api.dto.GameDto
 import cloud.oneio.task.fizzbuzz.service.GameService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
