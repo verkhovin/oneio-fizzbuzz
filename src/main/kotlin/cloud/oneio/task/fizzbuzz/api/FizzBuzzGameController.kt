@@ -9,5 +9,5 @@ import java.util.concurrent.Callable
 @RestController
 class FizzBuzzGameController(private val fizzBuzzGameService: GameService) {
   @GetMapping("/rounds")
-  fun rounds(@RequestParam numbers: List<Int>) = Callable { fizzBuzzGameService.playRounds(numbers) }
+  fun rounds(@RequestParam numbers: List<Int>) = Callable { GameDto of fizzBuzzGameService.playRounds(numbers) }
 }

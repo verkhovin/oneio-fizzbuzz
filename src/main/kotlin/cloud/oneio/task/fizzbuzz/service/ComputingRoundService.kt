@@ -11,7 +11,7 @@ class ComputingRoundService: RoundService{
     generateSequence(roundStart) { it + 1 }
       .take(roundGoal)
       .map(this::fizzBuzz)
-      .joinToString().also { print(roundGoal) }
+      .toList()
   )
 
   private fun fizzBuzz(roundStep: Int): String = when {
