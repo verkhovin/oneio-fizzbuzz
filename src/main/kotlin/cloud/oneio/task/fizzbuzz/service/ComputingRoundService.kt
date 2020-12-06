@@ -13,6 +13,9 @@ class ComputingRoundService : RoundService {
   override fun playRound(roundGoal: Int) = playRound(roundGoal, 1)
 
   override fun playRound(roundGoal: Int, roundStart: Int): Round {
+    if (roundGoal < 1) {
+      throw IllegalArgumentException("roundGoal must be greater than or equal to 1")
+    }
     log.info("Compute fizz buzz from {} to {}", roundStart, roundGoal)
     return Round(
       generateSequence(roundStart) { it + 1 }

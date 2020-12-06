@@ -4,6 +4,12 @@ import cloud.oneio.task.fizzbuzz.model.Round
 import java.util.concurrent.atomic.AtomicReference
 
 class InMemoryLargestRoundHolder(private val maxCacheableRoundGoal: Int, initialRound: Round): LargestRoundHolder {
+  init {
+    if (initialRound.size > maxCacheableRoundGoal) {
+      throw IllegalArgumentException("Initial round gould must not be greater than max cacheable round goal.")
+    }
+  }
+
   private val value: AtomicReference<Round> = AtomicReference(initialRound)
 
   override val round: Round

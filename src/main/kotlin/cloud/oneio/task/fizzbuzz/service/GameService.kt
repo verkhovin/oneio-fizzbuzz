@@ -7,8 +7,8 @@ import java.util.stream.Collectors
 
 @Service
 class GameService(@Qualifier("cacheableRoundServiceDecorator") private val roundService: RoundService) {
-  fun playRounds(numbers: List<Int>): Game = Game(
-    numbers.stream()
+  fun playRounds(goals: List<Int>): Game = Game(
+    goals.stream()
       .parallel()
       .map { roundService.playRound(it) }
       .collect(Collectors.toList())
