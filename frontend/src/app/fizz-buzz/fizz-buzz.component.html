@@ -1,0 +1,15 @@
+<!--<div [className]="showResult ? 'container align-items-center' : 'container align-items-center h-100'">-->
+<div class="container-md" [class.h-100]="!showResult">
+    <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-md-8 justify-content-center">
+            <div [class.h-100]="!showResult" [class.mt-3]="showResult" class="container align-items-center">
+                <app-fizz-buzz-input (onSubmit)="load($event)" [disabled]="loadingResults"
+                                     [errorMessage]="errorMessage"></app-fizz-buzz-input>
+            </div>
+            <div class="container mt-4">
+                <app-fizz-buzz-output *ngIf="showResult" [game]="game"></app-fizz-buzz-output>
+<!--                <app-fizz-buzz-output [game]="game"></app-fizz-buzz-output>-->
+            </div>
+        </div>
+    </div>
+</div>

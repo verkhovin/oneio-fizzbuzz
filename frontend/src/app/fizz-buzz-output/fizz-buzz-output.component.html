@@ -1,0 +1,29 @@
+<div class="card">
+    <div class="card-body">
+        <div *ngIf="game">
+                <div class="card mt-2" *ngFor="let round of game.rounds">
+                    <div class="card-header">Fizz Buzz for {{round.goal}}</div>
+                    <div class="card-body">
+                        {{round.result}}
+                    </div>
+                </div>
+        </div>
+        <div *ngIf="!game">
+            <div class="ph-item">
+                <div class="ph-col-12">
+                    <div class="ph-picture"></div>
+                </div>
+            </div>
+            <div class="ph-item">
+                <div class="ph-col-12">
+                    <div class="ph-picture"></div>
+                </div>
+            </div>
+            <div class="ph-item">
+                <div class="ph-col-12">
+                    <div class="ph-picture"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

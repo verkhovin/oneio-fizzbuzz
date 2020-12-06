@@ -7,13 +7,12 @@ data class GameDto(val rounds: List<RoundDto>) {
     infix fun of(game: Game) = GameDto(
       game.rounds
         .asSequence()
-        .map { it.result.joinToString() }
-        .map(::RoundDto)
+        .map { RoundDto(it.result.joinToString(), it.result.size) }
         .toList()
     )
   }
 }
 
-data class RoundDto(val result: String)
+data class RoundDto(val result: String, val goal: Int)
 
 
