@@ -1,0 +1,23 @@
+name: CI 
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: deploy
+        uses: JimCronqvist/action-ssh@master
+        with:
+          hosts: 'fizzbuzz@134.122.101.103'
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          command: |
+            rm -rf oneio-fizzbuzz
+            git clone https://github.com/verkhovin/oneio-fizzbuzz.git
+            cd oneio-fizzbuzz
+            docker-compose stop && docker-compose rm --force && docker-compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache && docker-compose up -d
+            

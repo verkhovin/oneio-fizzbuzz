@@ -1,0 +1,8 @@
+version: '3'
+services:
+  frontent:
+    build:
+      args:
+        configuration: production
+    ports:
+      - 80:80
