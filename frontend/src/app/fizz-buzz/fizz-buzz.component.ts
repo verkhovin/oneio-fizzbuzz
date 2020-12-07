@@ -39,19 +39,18 @@ export class FizzBuzzComponent implements OnInit {
   private handleApiResponse(response: HttpResponse<GameDto>) {
     if(response.status === 400) {
       this.inputError = "You passed bad value here, check and try again"
-      this.showResult = true
+      this.showResult = false
     } else if (response.status > 400 || response.body == null) {
       this.setGenericError()
     }
 
     if (response.status === 200 && response.body != null) {
       this.game = response.body;
-      console.log(this.game)
     }
   }
 
   private setGenericError() {
-    this.showResult = true
+    this.showResult = false
     this.errorMessage = FizzBuzzComponent.GENERIC_ERROR_MESSAGE
   }
 }

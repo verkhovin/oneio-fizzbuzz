@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    container_name: fizzbuzz-backend
+    build:
+      context: backend/.
+    image: fizzbuzz-backend:lastest
+    ports:
+      - 8080:8080
+  frontent:
+    container_name: fizzbuzz-frontend
+    build:
+      context: frontend/.
+    image: fizzbuzz-frontend:lastest
+    ports:
+      - 4200:80

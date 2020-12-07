@@ -4,6 +4,7 @@ import { ApiModule, BASE_PATH } from 'fizzbuzz-client';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbAlertModule, NgbModule, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -29,7 +30,7 @@ import { FizzBuzzOutputComponent } from './fizz-buzz-output/fizz-buzz-output.com
         ReactiveFormsModule
     ],
     providers: [{
-        provide: BASE_PATH, useValue: 'http://localhost:8080'
+        provide: BASE_PATH, useValue: environment.fizzBuzzBasePath
     }],
     bootstrap: [AppComponent]
 })

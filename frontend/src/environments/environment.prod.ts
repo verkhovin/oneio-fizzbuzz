@@ -1,3 +1,4 @@
 export const environment = {
-    production: true
+    production: true,
+    fizzBuzzBasePath: 'https://laterthere:8080'
 };

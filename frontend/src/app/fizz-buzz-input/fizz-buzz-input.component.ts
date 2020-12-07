@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { isInteger } from "@ng-bootstrap/ng-bootstrap/util/util";
 
 @Component({
     selector: 'app-fizz-buzz-input',
@@ -35,13 +36,11 @@ export class FizzBuzzInputComponent implements OnInit {
     clicked() {
         this.validationMessage = ""
         this.submitted = true
-        console.log(this.form)
         if (this.form.valid) {
             try {
                 let goals: Array<number> = this.form.value.goals
                     .split(',')
                     .map((s: String) => this.toInt(s));
-                console.log(goals)
                 this.onSubmit.emit(goals)
             } catch (e) {
                 this.form.controls.goals.setErrors({format: true})
@@ -51,7 +50,7 @@ export class FizzBuzzInputComponent implements OnInit {
 
     private toInt(s: String) {
         let number = Number(s.trim());
-        if (isNaN(number)) throw 'number format'
+        if (isNaN(number) || !Number.isInteger(number)) throw 'number format'
         if (number < 1) {
             this.validationMessage = 'Zeros and negative numbers is not allowed! Get rid of ' + number + '.'
             throw 'validation'
