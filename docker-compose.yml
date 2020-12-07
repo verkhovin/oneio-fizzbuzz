@@ -7,7 +7,7 @@ services:
     image: fizzbuzz-backend:lastest
     ports:
       - 8080:8080
-  frontent:
+  frontend:
     container_name: fizzbuzz-frontend
     build:
       context: frontend/.

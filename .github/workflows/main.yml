@@ -19,5 +19,5 @@ jobs:
             rm -rf oneio-fizzbuzz
             git clone https://github.com/verkhovin/oneio-fizzbuzz.git
             cd oneio-fizzbuzz
-            docker-compose stop && docker-compose rm --force && docker-compose -f docker-compose.yml -f docker-compose.prod.yml build --no-cache && docker-compose up -d
+            docker-compose stop && docker-compose rm --force && docker-compose -f docker-compose.yml -f docker-compose.prod.yml build && docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
             
