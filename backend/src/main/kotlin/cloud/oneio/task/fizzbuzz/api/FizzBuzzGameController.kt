@@ -10,7 +10,7 @@ import java.lang.IllegalArgumentException
 import java.util.concurrent.Callable
 
 @RestController
-@CrossOrigin(origins = ["http://localhost:4200"])
+@CrossOrigin(origins = ["http://localhost:4200", "http://134.122.101.103"])
 class FizzBuzzGameController(private val fizzBuzzGameService: GameService) {
   @GetMapping("/rounds")
   @ApiResponses(

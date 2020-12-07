@@ -13,3 +13,5 @@ The largest Fizz Buzz Round is cached and used for other rounds ([by this decora
 The size of the currently cached value can be watched on http://localhost:8080/actuator/metrics/fizzbuzz.rounds.largest.
 Of course, the cache is "pre-warmed" by the result of Fizz Buzz for 500.
 
+# Metrics
+Metrics are provided by actuator: http:/localhost:8080/actuator
